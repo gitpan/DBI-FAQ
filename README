@@ -2,7 +2,7 @@
 DBI::FAQ -- The Frequently Asked Questions for the Perl5 Database Interface
 ===========================================================================
 
-Copyright (c) 1994-1998 Alligator Descartes. Please see the 'COPYRIGHT'
+Copyright (c) 1994-2000 Alligator Descartes. Please see the 'COPYRIGHT'
 section of the actual documentation for the exact details of the license.
 
 BEFORE BUILDING, TESTING AND INSTALLING this you will need to:
@@ -39,5 +39,4 @@ know so that I can try to make it automatic in a later release.
 
 --
 Alligator Descartes.
-descarte@arcana.co.uk
-http://www.arcana.co.uk
+http://www.symbolstone.org/descarte/contact.html

@@ -5,24 +5,24 @@
 ###
 ### Copyright section reproduced from below.
 ###
-### This document is Copyright (c)1994-1999 Alligator Descartes, with portions
-### Copyright (c)1994-1999 their original authors. This module is released under
+### This document is Copyright (c)1994-2000 Alligator Descartes, with portions
+### Copyright (c)1994-2000 their original authors. This module is released under
 ### the 'Artistic' license which you can find in the perl distribution.
 ### 
-### This document is Copyright (c)1997-1999 Alligator Descartes. All rights reserved.
+### This document is Copyright (c)1997-2000 Alligator Descartes. All rights reserved.
 ### Permission to distribute this document, in full or in part, via email,
 ### Usenet, ftp archives or http is granted providing that no charges are involved,
 ### reasonable attempt is made to use the most current version and all credits
 ### and copyright notices are retained ( the I<AUTHOR> and I<COPYRIGHT> sections ).
 ### Requests for other distribution rights, including incorporation into 
 ### commercial products, such as books, magazine articles or CD-ROMs should be
-### made to Alligator Descartes <I<descarte@arcana.co.uk>>.
+### made to Alligator Descartes <I<http://www.symbolstone.org/descarte/contact.html>>.
 ### 
 ### $Log$
 
 package DBI::FAQ;
 
-$VERSION = '0.37';
+$VERSION = '0.38';
 
 =head1 NAME
 
@@ -30,14 +30,14 @@ DBI::FAQ -- The Frequently Asked Questions for the Perl5 Database Interface
 
 =for html
 <BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#3a15ff" ALINK="#ff0000" VLINK="#ff282d">
-<!--#include virtual="/technologia/perl/DBI/templatetop.html" -->
+<!--#include virtual="/technology/perl/DBI/templatetop.html" -->
 <CENTER>
 <FONT SIZE="+2">
-DBI Frequently Asked Questions v.0.37
+DBI Frequently Asked Questions v.0.38
 </FONT>
 <BR>
 <FONT SIZE="-1">
-<I>Last updated: December 30th, 1998</I>
+<I>Last updated: February 8th, 2000</I>
 </FONT>
 </CENTER>
 <P>
@@ -48,7 +48,7 @@ DBI Frequently Asked Questions v.0.37
 
 =head1 VERSION
 
-This document is currently at version I<0.37>, as of I<December 30th, 1998>.
+This document is currently at version I<0.38>, as of I<February 8th, 2000>.
 
 =head1 DESCRIPTION
 
@@ -103,10 +103,10 @@ I<dbi-users> mailing list.
     Sybperl     Sybase              Michael Peppler DBD::Sybase
                                     <mpeppler@itf.ch>
     Oraperl     Oracle 6 & 7        Kevin Stock     DBD::Oracle
-                                    <dbi-users@fugue.com>
+                                    <dbi-users@isc.org>
     Ingperl     Ingres              Tim Bunce &     DBD::Ingres
                                     Ted Lemon
-                                    <dbi-users@fugue.com>
+                                    <dbi-users@isc.org>
     Interperl   Interbase           Buzz Moschetti  DBD::Interbase
                                     <buzz@bear.com>
     Uniperl     Unify 5.0           Rick Wargo      None
@@ -157,7 +157,10 @@ I<CPAN multiplexer> program located at:
 For more specific version information and exact URLs of drivers, please see
 the DBI drivers list and the DBI module pages which can be found on:
 
-    http://www.arcana.co.uk/technologia/perl/DBI
+    http://www.symbolstone.org/technology/perl/DBI
+
+This list is automatically generated on a nightly basis from CPAN and should
+be up-to-date.
 
 =head2 1.3. Where can I get more information?
 
@@ -165,13 +168,87 @@ There are a few information sources on DBI.
 
 =over 4
 
+=item I<"Programming the Perl DBI">
+
+"Programming the Perl DBI" is the I<official> book on the DBI written by
+Alligator Descartes and Tim Bunce and published by O'Reilly & Associates.
+The book was released on February 9th, 2000.
+
+The table of contents is:
+
+    Preface
+    1. Introduction
+        From Mainframes to Workstations
+        Perl
+        DBI in the Real World
+        A Historical Interlude and Standing Stones
+    2. Basic Non-DBI Databases
+        Storage Managers and Layers
+        Query Languages and Data Functions
+        Standing Stones and the Sample Database
+        Flat-File Databases
+        Putting Complex Data into Flat Files
+        Concurrent Database Access and Locking
+        DBM Files and the Berkeley Database Manager
+        The MLDBM Module
+        Summary
+    3. SQL and Relational Databases
+        The Relational Database Methodology
+        Datatypes and NULL Values
+        Querying Data
+        Modifying Data Within Tables
+        Creating and Destroying Tables
+    4. Programming with the DBI
+        DBI Architecture
+        Handles
+        Data Source Names
+        Connection and Disconnection
+        Error Handling
+        Utility Methods and Functions
+    5. Interacting with the Database
+        Issuing Simple Queries
+        Executing Non-SELECT Statements
+        Binding Parameters to Statements
+        Binding Output Columns
+        do() Versus prepare()
+        Atomic and Batch Fetching
+    6. Advanced DBI
+        Handle Attributes and Metadata
+        Handling LONG/LOB Data
+        Transactions, Locking, and Isolation
+    7. ODBC and the DBI
+        ODBC -- Embraced and Extended
+        DBI -- Thrashed and Mutated
+        The Nuts and Bolts of ODBC
+        ODBC from Perl
+        The Marriage of DBI and ODBC
+        Questions and Choices
+        Moving Between Win32::ODBC and the DBI
+        And What About ADO?
+    8. DBI Shell and Database Proxying
+        dbish -- The DBI Shell
+        Database Proxying
+    A. DBI Specification
+    B. Driver and Database Characteristics
+    C. ASLaN Sacred Site Charter
+    Index
+
+The book should be available from all good bookshops and can be ordered online
+either <I>via</I> O'Reilly & Associates
+
+    http://www.oreilly.com/catalog/perldbi
+
+or Amazon
+
+    http://www.amazon.com/exec/obidos/ASIN/1565926994/dbi
+
 =item I<POD documentation>
 
 I<POD>s are chunks of documentation usually embedded within perl programs
 that document the code ``I<in place>'', providing a useful resource for
 programmers and users of modules. POD for DBI and drivers is beginning to 
 become more commonplace, and documentation for these modules can be read
-with the following commands.
+with the C<perldoc> program included with Perl.
 
 =over 4 
 
@@ -181,7 +258,8 @@ The POD for the DBI Specification can be read with the:
 
     perldoc DBI
 
-command.
+command. The Specification also forms Appendix A of "Programming the Perl
+DBI".
 
 =item Oraperl
 
@@ -233,101 +311,36 @@ I<Tk::POD> and is highly recommended.
 
 =back
 
+=item I<Driver and Database Characteristics>
+
+The driver summaries that were produced for Appendix B of "Programming the
+Perl DBI" are available online at:
+
+    http://www.symbolstone.org/technology/perl/DBI
+
+in the driver information table. These summaries contain standardised
+information on each driver and database which should aid you in selecting
+a database to use. It will also inform you quickly of any issues within
+drivers or whether a driver is not fully compliant with the DBI Specification.
+
 =item I<Rambles, Tidbits and Observations>
 
-    http://www.arcana.co.uk/technologia/perl/DBI/tidbits
+    http://www.symbolstone.org/technology/perl/DBI/tidbits
 
 There are a series of occasional rambles from various people on the
 DBI mailing lists who, in an attempt to clear up a simple point, end up
 drafting fairly comprehensive documents. These are quite often varying in
 quality, but do provide some insights into the workings of the interfaces.
 
-=item I<``DBI -- The perl5 Database Interface''>
+=item I<Articles>
 
-This is an article written by Alligator Descartes and Tim Bunce on the
-structure of DBI. It was published in issue 5 of ``I<The Perl Journal>''. 
-It's I<extremely> good. Go buy the magazine. In fact, buy all of them! 
-``The Perl Journal''s WWW site is:
+A list of articles discussing the DBI can be found on the DBI WWW page at:
 
-    http://www.tpj.com
+    http://www.symbolstone.org/technology/perl/DBI
 
-This article has now been placed online thanks to the gracious permission of
-Jon Orwant, editor of ``The Perl Journal''. It can be accessed I<via> the
-WWW at
-
-    http://www.arcana.co.uk/technologia/perl/DBI/doc/tpj5/index.html
-
-The article contains information that is now out of date with regards to the
-DBI 1.0 Specification since it was written approximately 2 years ago.
-I<Caveat Emptor>!
-
-=item I<``DBperl''>
-
-This article, published in the November 1996 edition of ``Dr. Dobbs
-Journal'' concerned I<DBperl>. The author of this edition apparently did
-not bother to contact any of the DBI development team members for verification
-of the information contained within his article. Several reviews of the
-article on the I<dbi-users> mailing list were disparaging, to say the least.
-The fact the article was written about I<DBperl> instead of I<DBI> hints
-at the staleness of the information.
-
-However, we include the reference for completeness' sake.
-
-=item I<``The Perl5 Database Interface''>
-
-This item is a book being written by Alligator Descartes and Tim Bunce
-and will be published by O'Reilly and Associates early in 1999.
-
-Here is the putative table of contents for the book.
-
-     * Introduction
-          + Databases
-          + CGI / WWW
-          + perl
-     * Basic Database Concepts
-          + Types of Database
-               o Flat File
-               o AnyDBM
-               o RDBMS
-          + Using Which Database For What...
-     * SQL
-          + Why SQL?
-          + Structuring Information In Databases
-          + Retrieving Data From Databases
-          + Manipulating Data and Data Structures
-     * DBI Architecture
-     * Programming with DBI
-          + DBI Initialization
-          + Handles
-               o Driver Handles
-               o Database Handles
-               o Statement Handles
-          + Connection and Disconnection
-          + Handling Errors
-          + Issuing Simple Queries
-          + Executing Atomic Statements
-          + Statement MetaData
-          + More perl-ish Statements
-          + Binding
-          + Transaction Handling
-          + Utility Methods
-          + Handle Attributes and Dynamic Variables
-     * DBI and ODBC
-     * The Database Drivers
-          + DBD::Oracle and oraperl
-          + DBD::Informix and isqlperl
-          + DBD::mSQL and Msqlperl
-     * Case Studies
-          + DBI and the WWW
-          + Data Migration and Warehousing
-          + Administration Software
-     * Appendix: API Reference / Specification
-     * Appendix: Resources
-
-The book is currently well underway with around half being written to date and
-much example code has been written. Please do not pester the authors with
-``when will it be coming out?'' questions. We don't know exactly, but ``soon''
-is a good enough guess.
+These articles are of varying quality and age, from the original Perl Journal
+article written by Alligator and Tim, to more recent debacles published online
+from about.com.
 
 =item I<README files>
 
@@ -336,7 +349,7 @@ some useful information ( no, really! ) that may be pertinent to the user.
 Please read them. It makes our worthless existences more bearable. These
 can all be read from the main DBI WWW page at:
 
-    http://www.arcana.co.uk/technologia/perl/DBI
+    http://www.symbolstone.org/technology/perl/DBI
 
 =item I<Mailing Lists>
 
@@ -344,7 +357,7 @@ There are three mailing lists for DBI run by Ted Lemon. These can all
 be subscribed to and unsubscribed from I<via> the World Wide Web at the
 URL of:
 
-    http://www.fugue.com/dbi
+    http://www.isc.org/dbi-lists.html
 
 The lists that users may participate in are:
 
@@ -358,7 +371,7 @@ announcements are usually posted on the main DBI WWW page.
 If you cannot successfully use the form on the above WWW page, please
 subscribe to the list in the following manner:
 
-    Email: 'dbi-announce-request@fugue.com' with a message body of
+    Email: 'dbi-announce-request@isc.org' with a message body of
     'subscribe'
 
 =item I<dbi-dev>
@@ -370,7 +383,7 @@ Only any use for developers, or interested parties. Low traffic.
 If you cannot successfully use the form on the above WWW page, please
 subscribe to the list in the following manner:
 
-    Email: 'dbi-dev-request@fugue.com' with a message body of
+    Email: 'dbi-dev-request@isc.org' with a message body of
     'subscribe'
 
 =item I<dbi-users>
@@ -381,7 +394,7 @@ problem discussion and general enquiries. Medium traffic.
 If you cannot successfully use the form on the above WWW page, please
 subscribe to the list in the following manner:
 
-    Email: 'dbi-users-request@fugue.com' with a message body of
+    Email: 'dbi-users-request@isc.org' with a message body of
     'subscribe'
 
 =back
@@ -416,7 +429,7 @@ information about the problem. It may be a known problem for your given
 architecture and operating system or database. You can check the README
 files for each driver in advance online at:
 
-    http://www.arcana.co.uk/technologia/perl/DBI
+    http://www.symbolstone.org/technology/perl/DBI
 
 If it's a known problem, you'll probably have to wait till it gets fixed. If 
 you're I<really> needing it fixed, try the following:
@@ -512,13 +525,16 @@ In terms of architecture - not much: Both define programming
 interfaces. Both allow multiple drivers to be loaded to do the
 actual work.
 
-In terms of easy of use - much: The DBI is a 'high level' interface
+In terms of ease of use - much: The DBI is a 'high level' interface
 that, like Perl itself, strives to make the simple things easy while
 still making the hard things possible. The ODBC is a 'low level'
 interface. All nuts-bolts-knobs-and-dials.
 
 Now there's an ODBC driver for the DBI (DBD::ODBC) the "What's the
 difference" question is more usefully rephrased as:
+
+Chapter 7 of "Programming the Perl DBI" covers this topic in far more
+detail and should be consulted.
 
 =head2 3.2 What's the difference between Win32::ODBC and DBD::ODBC?
 
@@ -555,6 +571,9 @@ To summarise: The Win32::ODBC module is your best choice if you need
 access to more of the ODBC API than the DBI gives you. Otherwise, the
 DBI and DBD::ODBC combination may be your best bet.
 
+Chapter 7 of "Programming the Perl DBI" covers this topic in far more
+detail and should be consulted.
+
 =head2 3.3 Is DBI supported under Windows 95 / NT platforms?
 
 Finally, yes! Jeff Urlwin has been working diligently on building
@@ -574,7 +593,7 @@ Yes, use the I<DBD::ODBC> driver.
 
 Is is listed on the DBI drivers page?
 
-    http://www.arcana.co.uk/technologia/perl/DBI
+    http://www.symbolstone.org/technology/perl/DBI
 
 If not, no. A complete absence of a given database driver from that
 page means that no-one has announced any intention to work on it, not that
@@ -617,6 +636,8 @@ To sum up, DBM is a perfectly satisfactory solution for essentially read-only
 databases, or small and simple datasets. However, for more 
 scaleable dataset handling, not to mention robust transactional locking, 
 users are recommended to use a more powerful database engine I<via> I<DBI>.
+
+Chapter 2 of "Programming the Perl DBI" discusses DBM files in detail.
 
 =head2 3.7 What database do you recommend me using?
 
@@ -768,15 +789,49 @@ intering the DBI while it's already in use.
 For some OCI example code for Oracle that has multi-threaded C<SELECT>
 statements, see:
 
-    http://www.arcana.co.uk/technologia/oracle/oci/orathreads.tar.gz
+    http://www.symbolstone.org/technology/oracle/oci/orathreads.tar.gz
 
 =head2 5.2 How do I handle BLOB data with DBI?
 
-If the BLOB can fit into your memory then setting the LongReadLen
-attribute to a large enough value should be sufficient.
-  
-If not, ... To be written.
+Handling BLOB data with the DBI is very straight-forward. BLOB columns are
+specified in a SELECT statement as per normal columns. However, you also
+need to specify a maximum BLOB size that the <I>database handle</I> can
+fetch using the C<LongReadLen> attribute.
 
+For example:
+
+    ### $dbh is a connected database handle
+    $sth = $dbh->prepare( "SELECT blob_column FROM blobby_table" );
+    $sth->execute;
+
+would fail.
+
+    ### $dbh is a connected database handle
+    ### Set the maximum BLOB size...
+    $dbh->{LongReadLen} = 16384;        ### 16Kb...Not much of a BLOB!
+
+    $sth = $dbh->prepare( "..." );
+
+would succeed <I>provided no column values were larger than the specified
+value</I>.
+
+If the BLOB data is longer than the value of C<LongReadLen>, then an
+error will occur. However, the DBI provides an additional piece of
+functionality that will automatically truncate the fetched BLOB to the
+size of C<LongReadLen> if it is longer. This does not cause an error to
+occur, but may make your fetched BLOB data useless.
+
+This behaviour is regulated by the C<LongTruncOk> attribute which is 
+defaultly set to a false value ( thus making overlong BLOB fetches fail ).
+
+    ### Set BLOB handling such that it's 16Kb and can be truncated
+    $dbh->{LongReadLen} = 16384;
+    $dbh->{LongTruncOk} = 1;
+
+Truncation of BLOB data may not be a big deal in cases where the BLOB
+contains run-length encoded data, but data containing checksums at the end,
+for example, a ZIP file, would be rendered useless.
+  
 =head2 5.3 How can I invoke stored procedures with DBI?
 
 The DBI does not define a database-independent way of calling stored procedures.
@@ -821,7 +876,10 @@ the drivers you are using to see if they support this mechanism.
 
 =head2 5.6 How can I C<commit> or C<rollback> a statement with DBI?
 
-See the C<commit()> and C<rollback()> methods in the DBI README.
+See the C<commit()> and C<rollback()> methods in the DBI Specification.
+
+Chapter 6 of "Programming the Perl DBI" discusses transaction handling within
+the context of DBI in more detail.
 
 =head2 5.7 How are C<NULL> values handled by DBI?
 
@@ -917,25 +975,25 @@ unknown sites or missing documents.
 
 =head1 AUTHOR
 
-Alligator Descartes <I<descarte@arcana.co.uk>>. Portions are Copyright their
-original stated authors.
+Alligator Descartes <I<http://www.symbolstone.org/descarte/contact.html>>. 
+Portions are Copyright their original stated authors.
 
 =head1 COPYRIGHT
 
-This document is Copyright (c)1994-1999 Alligator Descartes, with portions
-Copyright (c)1994-1999 their original authors. This module is released under
+This document is Copyright (c)1994-2000 Alligator Descartes, with portions
+Copyright (c)1994-2000 their original authors. This module is released under
 the 'Artistic' license which you can find in the perl distribution.
 
-This document is Copyright (c)1997-1999 Alligator Descartes. All rights reserved.
+This document is Copyright (c)1997-2000 Alligator Descartes. All rights reserved.
 Permission to distribute this document, in full or in part, via email,
 Usenet, ftp archives or http is granted providing that no charges are involved,
 reasonable attempt is made to use the most current version and all credits
 and copyright notices are retained ( the I<AUTHOR> and I<COPYRIGHT> sections ).
 Requests for other distribution rights, including incorporation into 
 commercial products, such as books, magazine articles or CD-ROMs should be
-made to Alligator Descartes <I<descarte@arcana.co.uk>>.
+made to Alligator Descartes <I<http://www.symbolstone.org/descarte/contact.html>>.
 
 =for html
-<!--#include virtual="/technologia/perl/DBI/templatebottom.html" -->
+<!--#include virtual="/technology/perl/DBI/templatebottom.html" -->
 </BODY>
 </HTML>
