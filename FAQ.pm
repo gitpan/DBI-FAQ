@@ -5,55 +5,50 @@
 ###
 ### Copyright section reproduced from below.
 ###
-### This document is Copyright (c)1994-1997 Alligator Descartes, with portions
-### Copyright (c)1994-1997 their original authors. This module is released under
+### This document is Copyright (c)1994-1998 Alligator Descartes, with portions
+### Copyright (c)1994-1998 their original authors. This module is released under
 ### the 'Artistic' license which you can find in the perl distribution.
 ### 
-### This document is Copyright (c)1997 Alligator Descartes. All rights reserved.
+### This document is Copyright (c)1997-1998 Alligator Descartes. All rights reserved.
 ### Permission to distribute this document, in full or in part, via email,
 ### Usenet, ftp archives or http is granted providing that no charges are involved,
 ### reasonable attempt is made to use the most current version and all credits
 ### and copyright notices are retained ( the I<AUTHOR> and I<COPYRIGHT> sections ).
 ### Requests for other distribution rights, including incorporation into 
 ### commercial products, such as books, magazine articles or CD-ROMs should be
-### made to Alligator Descartes <I<descarte@hermetica.com>>.
+### made to Alligator Descartes <I<descarte@arcana.co.uk>>.
 ### 
 ### $Log$
 
 package DBI::FAQ;
+
+$VERSION = '0.36';
 
 =head1 NAME
 
 DBI::FAQ -- The Frequently Asked Questions for the Perl5 Database Interface
 
 =for html
-<HTML>
-<HEAD>
-<!-- -->
-<!-- $Id: faq.html,v 1.1 1996/02/21 23:30:32 descarte Exp descarte $ -->
-<!-- -->
-<TITLE>Frequently Asked Questions for DBI</TITLE>
-</HEAD>
 <BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#3a15ff" ALINK="#ff0000" VLINK="#ff282d">
-<CENTER>
-<IMG SRC="/img/hermlogo.gif" WIDTH=437 HEIGHT=115 ALT="[ Hermetica ]">
-</CENTER>
-<HR>
-<P>
+<!--#include virtual="/technologia/perl/DBI/templatetop.html" -->
 <CENTER>
 <FONT SIZE="+2">
-DBI Frequently Asked Questions v.0.34
+DBI Frequently Asked Questions v.0.36
 </FONT>
 <BR>
 <FONT SIZE="-1">
-<I>Last updated: June 15th, 1997</I>
+<I>Last updated: October 15th, 1998</I>
 </FONT>
 </CENTER>
 <P>
 
+=head1 SYNOPSIS
+
+    perldoc DBI::FAQ
+
 =head1 VERSION
 
-This document is currently at version I<0.34>, as of I<June 15th, 1997>.
+This document is currently at version I<0.36>, as of I<October 15th, 1998>.
 
 =head1 DESCRIPTION
 
@@ -82,9 +77,9 @@ to read data from an Oracle database and insert it back into an Informix
 database all within one program. The DBI layer allows you to do this simply
 and powerfully.
 
-Here's a diagram that demonstrates the principle:
 
 =for html
+Here's a diagram that demonstrates the principle:
 <P>
 <CENTER>
 <IMG SRC="img/dbiarch.gif" WIDTH=451 HEIGHT=321 ALT="[ DBI Architecture ]">
@@ -142,7 +137,7 @@ Here's a table of emulation layer information:
     DBD::mSQL       Msqlperl            Experimentally released with 
                                         DBD::mSQL-0.61
 
-The I<Msqlperl> emulation is a special case. I<Msqlperl> is a perlI<5> driver
+The I<Msqlperl> emulation is a special case. I<Msqlperl> is a perl5 driver
 for I<mSQL> databases, but does not conform to the DBI Specification. It's
 use is being deprecated in favour of I<DBD::mSQL>. I<Msqlperl> may be downloaded
 from CPAN I<via>:
@@ -165,26 +160,13 @@ Christiansen's splendid I<CPAN multiplexer> program located at:
 For more specific version information and exact URLs of drivers, please see
 the DBI drivers list and the DBI module pages which can be found on:
 
-    http://www.hermetica.com/technologia/perl/DBI
+    http://www.arcana.co.uk/technologia/perl/DBI
 
 =head2 1.3. Where can I get more information?
 
 There are a few information sources on DBI. 
 
 =over 4
-
-=item I<DBI Specification>
-
-    http://www.hermetica.com/technologia/perl/DBI/doc/dbispec
-
-There are two specifications available at this link, the new DBI Draft
-Specification which is a rapidly changing document as the development team
-drive towards a stable interface, and the old historical I<DBperl>
-Specification out of which the current DBI interface evolved.
-
-The latter document should be regarded as being of historical interest 
-only and should not serve as a programming manual, or authoratative in any 
-sense. However, it is still a very useful reference source.
 
 =item I<POD documentation>
 
@@ -246,7 +228,7 @@ and readable way.
 
 =item I<Rambles, Tidbits and Observations>
 
-    http://www.hermetica.com/technologia/perl/DBI/tidbits
+    http://www.arcana.co.uk/technologia/perl/DBI/tidbits
 
 There are a series of occasional rambles from various people on the
 DBI mailing lists who, in an attempt to clear up a simple point, end up
@@ -262,6 +244,15 @@ It's I<extremely> good. Go buy the magazine. In fact, buy all of them!
 
     http://www.tpj.com
 
+This article has now been placed online thanks to the gracious permission of
+Jon Orwant, editor of ``The Perl Journal''. It can be accessed I<via> the
+WWW at
+
+    http://www.arcana.co.uk/technologia/perl/DBI/doc/tpj5/index.html
+
+The article contains information that is now out of date with regards to the
+DBI 1.0 Specification since it was written approximately 2 years ago.
+
 =item I<``DBperl''>
 
 This article, published in the November 1996 edition of ``Dr. Dobbs
@@ -274,10 +265,56 @@ at the staleness of the information.
 
 However, we include the reference for completeness' sake.
 
-=item I<A Book........>
+=item I<``The Perl5 Database Interface''>
 
-A book, to be written by Alligator Descartes is currently in a proposal 
-stage to a publisher. We'll keep you posted...
+This item is a book being written by Alligator Descartes and Tim Bunce
+and will be published by O'Reilly and Associates early in 1999.
+
+Here is the putative table of contents for the book.
+
+     * Introduction
+          + Databases
+          + CGI / WWW
+          + perl
+     * Basic Database Concepts
+          + Types of Database
+               o Flat File
+               o AnyDBM
+               o RDBMS
+          + Using Which Database For What...
+     * SQL
+          + Why SQL?
+          + Structuring Information In Databases
+          + Retrieving Data From Databases
+          + Manipulating Data and Data Structures
+     * DBI Architecture
+     * Programming with DBI
+          + DBI Initialization
+          + Handles
+               o Driver Handles
+               o Database Handles
+               o Statement Handles
+          + Connection and Disconnection
+          + Handling Errors
+          + Issuing Simple Queries
+          + Executing Atomic Statements
+          + Statement MetaData
+          + More perl-ish Statements
+          + Binding
+          + Transaction Handling
+          + Utility Methods
+          + Handle Attributes and Dynamic Variables
+     * DBI and ODBC
+     * The Database Drivers
+          + DBD::Oracle and oraperl
+          + DBD::Informix and isqlperl
+          + DBD::mSQL and Msqlperl
+     * Case Studies
+          + DBI and the WWW
+          + Data Migration and Warehousing
+          + Administration Software
+     * Appendix: API Reference / Specification
+     * Appendix: Resources
 
 =item I<README files>
 
@@ -286,7 +323,7 @@ some useful information ( no, really! ) that may be pertinent to the user.
 Please read them. It makes our worthless existences more bearable. These
 can all be read from the main DBI WWW page at:
 
-    http://www.hermetica.com/technologia/perl/DBI
+    http://www.arcana.co.uk/technologia/perl/DBI
 
 =item I<Mailing Lists>
 
@@ -361,11 +398,12 @@ As per the US archive above.
 
 =head2 2.1. Compilation problems or "It fails the test!"
 
-First off, consult the online information about the module, beit
-DBI itself, or a DBD, and see if it's a known compilation problem on your
-architecture. These documents can be found at:
+First off, consult the README for that driver in case there is useful 
+information about the problem. It may be a known problem for your given 
+architecture and operating system or database. You can check the README
+files for each driver in advance online at:
 
-    http://www.hermetica.com/technologia/perl/DBI
+    http://www.arcana.co.uk/technologia/perl/DBI
 
 If it's a known problem, you'll probably have to wait till it gets fixed. If 
 you're I<really> needing it fixed, try the following:
@@ -418,7 +456,7 @@ as possible, I<ie>:
 
 =item *
 
-I<ALL> the information off the README file in
+I<ALL> the information asked for in the README file in
 the problematic module. And we mean I<ALL> of it. We don't
 put lines like that in documentation for the good of our health, or
 to meet obscure README file standards of length.
@@ -439,7 +477,7 @@ and I<any other pertinent information>.
 =back
 
 Remember, the more information you send us, the quicker we can track 
-problems down. If you send us nothing, expect nothing back.
+problems down. If you send us no useful information, expect nothing back.
 
 =item I<Email the dbi-users Mailing List>
 
@@ -453,7 +491,8 @@ by mailing there.
 
 =head2 3.1 What's the difference between ODBC and DBI?
 
-Good question! To be filled in more detail!
+Good question! To be filled in more detail! Meanwhile, see the notes at
+the end of the DBI README file.
 
 =head2 3.2 Is DBI supported under Windows 95 / NT platforms?
 
@@ -463,40 +502,22 @@ advent of a stabler perl and a port of I<MakeMaker>, the project has
 come on by great leaps and bounds.
 
 The I<DBI> and I<DBD::Oracle> Win32 ports are now a standard part of DBI,
-so, downloading I<DBI> of version higher than I<0.81> should work fine.
-For the I<DBD::Oracle> patches required, please read the Win32 porting page
-at:
-
-    http://www.hermetica.com/technologia/perl/DBI/win32
+so, downloading I<DBI> of version higher than I<0.81> should work fine as 
+should using the most recent I<DBD::Oracle> version.
 
 =head2 3.3 Can I access Microsoft Access or SQL-Server databases with DBI?
 
-    Contributed by Tim Bunce and Jeff Urlwin
-
-Supplied with DBI-0.79 ( and later ) is an experimental DBI 'emulation layer'
-for the I<Win32::ODBC> module. It's called I<DBI::W32ODBC> and is,
-at the moment, very minimal. You will need the I<Win32::ODBC> module 
-available from:
-
-    http://www.roth.net
-
-Given its status, problem reports without fixes are likely to be ignored. 
-You will also need the I<Win32 DBI patch kit> as supplied by Jeff Urlwin,
-which you can locate by reading the previous question's answer.
-
-Jeff Urlwin is currently working hard on the ODBC layer.
-
-To get back to the question, theoretically, yes, you can access Microsoft 
-Access and SQL-Server databases from DBI I<via> ODBC!
+Yes, use the I<DBD::ODBC> driver.
 
 =head2 3.4 Is the a DBD for <I<insert favourite database here>>?
 
 Is is listed on the DBI drivers page?
 
-    http://www.hermetica.com/technologia/perl/DBI/DBD
+    http://www.arcana.co.uk/technologia/perl/DBI
 
 If not, no. A complete absence of a given database driver from that
-page means that no-one has announced any intention to work on it.
+page means that no-one has announced any intention to work on it, not that
+such a driver is impossible to write.
 
 A corollary of the above statement implies that if you see an announcement
 for a driver I<not> on the above page, there's a good chance it's not
@@ -536,20 +557,7 @@ databases, or small and simple datasets. However, for more powerful and
 scaleable datasets, not to mention robust transactional locking, users are
 recommended to use I<DBI>.
 
-=head2 3.6 When will mSQL-2 be supported?
-
-As of I<DBD::mSQL-0.61>, there has been support for I<mSQL-2>.
-However, there is no real support for any of the new methods added to the
-core mSQL library regarding index support yet. These are forthcoming
-and will be accessible I<via> C<func()> methods private to I<DBD::mSQL>.
-You can read more about these private methods in the I<DBD::mSQL> POD
-that can be found by typing:
-
-    perldoc DBD::mSQL
-
-provided you have I<DBD::mSQL> correctly installed.
-
-=head2 3.7 What database do you recommend me using?
+=head2 3.6 What database do you recommend me using?
 
 This is a particularly thorny area in which an objective answer is difficult
 to come by, since each dataset, proposed usage and system configuration
@@ -565,7 +573,7 @@ Technology WWW site at:
     http://www.hughes.com.au
 
 If the dataset is larger than 1 million row tables or 1000 tables, or if you
-have either more money, or larger machines, I would recommend I<Oracle7 RDBMS>.
+have either more money, or larger machines, I would recommend I<Oracle RDBMS>.
 Oracle's WWW site is an excellent source of more information.
 
     http://www.oracle.com
@@ -586,7 +594,7 @@ These views are not necessarily representative of anyone else's opinions,
 and do not reflect any corporate sponsorship or views. They are provided
 I<as-is>.
 
-=head2 3.8 Is <I<insert feature here>> supported in DBI?
+=head2 3.7 Is <I<insert feature here>> supported in DBI?
 
 Given that we're making the assumption that the feature you have requested
 is a non-standard database-specific feature, then the answer will be I<no>.
@@ -631,7 +639,7 @@ For more information on Apache, see the Apache Project's WWW site:
 
 The I<mod_perl> module can be downloaded from CPAN I<via>:
 
-    http://www.perl.com/cgi-bin/cpan_mod?module=mod_perl
+    http://www.perl.com/cgi-bin/cpan_mod?module=Apache
 
 =head2 4.3 How do I get persistent connections with DBI and CGI?
 
@@ -672,6 +680,14 @@ The ``Idiot's Guide To Solving Perl / CGI Problems'' can be located at:
 as can the ``Perl CGI Programming FAQ''. Read I<BOTH> these documents 
 carefully!
 
+=head2 4.5 How do I get the number of rows returned from a C<SELECT> statement?
+
+    Contributed by Tim Bunce
+
+Count them. Read the DBI docs for the C<rows()> method.
+
+=head1 Miscellaneous Questions
+
 =head2 5.1 Can I do multi-threading with DBI?
 
 As of the current date of this FAQ ( I<see top of page> ), no. perl
@@ -679,10 +695,13 @@ does not support multi-threading. However, multi-threading is expected to
 become part of the perl core distribution as of version 5.005, which implies
 that DBI may support multi-threading fairly soon afterwards.
 
+As of version 1.02 of DBI, DBI is not multi-thread-aware and use of 
+multi-threading with DBI may result in undefined behaviour.
+
 For some OCI example code for Oracle that has multi-threaded C<SELECT>
 statements, see:
 
-    http://www.hermetica.com/technologia/oracle/oci/orathreads.tar.gz
+    http://www.arcana.co.uk/technologia/oracle/oci/orathreads.tar.gz
 
 =head2 5.2 How do I handle BLOB data with DBI?
 
@@ -690,11 +709,23 @@ To be written.
 
 =head2 5.3 How can I invoke stored procedures with DBI?
 
-To be written.
+Assuming that you have created a stored procedure within the target
+database, I<eg>, an Oracle database, you can use C<$dbh>->C<do()> to
+immediately execute the procedure. For example,
+
+    $dbh->do( "BEGIN someProcedure; END;" );
 
 =head2 5.4 How can I get return values from stored procedures with DBI?
 
-To be written.
+    Contributed by Jeff Urlwin
+
+    $sth = $dbh->prepare( "BEGIN foo(:1, :2, :3); END;" );
+    $sth->bind_param(1, $a);
+    $sth->bind_param_inout(2, \$path, 2000);
+    $sth->bind_param_inout(3, \$success, 2000);
+    $sth->execute;
+
+Remember to perform error checking, though!
 
 =head2 5.5 How can I create or drop a database with DBI?
 
@@ -711,15 +742,15 @@ the drivers you are using to see if they support this mechanism.
 
 =head2 5.6 How can I C<commit> or C<rollback> a statement with DBI?
 
-To be written.
+To be written. See the C<commit()> and C<rollback()> methods in the DBI
+README.
 
 =head2 5.7 How are C<NULL> values handled by DBI?
 
 C<NULL> values in DBI are specified to be treated as the value C<undef>.
 C<NULL>s can be inserted into databases as C<NULL>, for example:
 
-    $rv =
-        $dbh->do( "INSERT INTO table VALUES( NULL )" );
+    $rv = $dbh->do( "INSERT INTO table VALUES( NULL )" );
 
 but when queried back, the C<NULL>s should be tested against C<undef>.
 This is standard across all drivers.
@@ -732,16 +763,27 @@ drop databases. Invoking these driver-specific methods is simple, for example,
 to invoke a C<createDatabase> method that has one argument, we would
 write:
 
-    $rv =
-        $dbh->func( 'argument', 'createDatabase' );
+    $rv =$dbh->func( 'argument', 'createDatabase' );
 
 Software developers should note that the C<func()> methods are
 non-portable between databases.
 
+=head2 5.9 Is DBI Year 2000 Compliant?
+
+DBI has no knowledge of understanding of what dates are. Therefore, DBI
+itself does not have a Year 2000 problem. Individual drivers may use date
+handling code internally and therefore be potentially susceptible to the
+Year 2000 problem, but this is unlikely.
+
+You may also wish to read the ``Does Perl have a Year 2000 problem?'' section
+of the Perl FAQ at:
+
+    http://www.perl.com/CPAN/doc/FAQs/FAQ/PerlFAQ.html
+
 =head1 Support and Training
 
 The Perl5 Database Interface is I<FREE> software. IT COMES WITHOUT WARRANTY
-OF ANY KIND.
+OF ANY KIND. See the DBI README for more details.
 
 However, some organizations are providing either technical support or
 training programs on DBI. The present author has no knowledge as
@@ -756,10 +798,10 @@ purposes only.
 
 The Perl Clinic can arrange commercial support contracts for I<Perl>, I<DBI>,
 I<DBD::Oracle> and I<Oraperl>. Support is provided by the company with whom
-Tim Bunce, author of DBI, works. For more information on their services,
-please see:
+Tim Bunce, author of I<DBI> and I<DBD::Oracle>, works. For more information on
+their services, please see:
 
-    http://www.perl.co.uk/tpc
+    http://www.perlclinic.com
 
 for more details.
 
@@ -781,34 +823,25 @@ unknown sites or missing documents.
 
 =head1 AUTHOR
 
-Alligator Descartes <I<descarte@hermetica.com>>
+Alligator Descartes <I<descarte@arcana.co.uk>>. Portions are Copyright their
+original stated authors.
 
 =head1 COPYRIGHT
 
-This document is Copyright (c)1994-1997 Alligator Descartes, with portions
-Copyright (c)1994-1997 their original authors. This module is released under
+This document is Copyright (c)1994-1998 Alligator Descartes, with portions
+Copyright (c)1994-1998 their original authors. This module is released under
 the 'Artistic' license which you can find in the perl distribution.
 
-This document is Copyright (c)1997 Alligator Descartes. All rights reserved.
+This document is Copyright (c)1997-1998 Alligator Descartes. All rights reserved.
 Permission to distribute this document, in full or in part, via email,
 Usenet, ftp archives or http is granted providing that no charges are involved,
 reasonable attempt is made to use the most current version and all credits
 and copyright notices are retained ( the I<AUTHOR> and I<COPYRIGHT> sections ).
 Requests for other distribution rights, including incorporation into 
 commercial products, such as books, magazine articles or CD-ROMs should be
-made to Alligator Descartes <I<descarte@hermetica.com>>.
+made to Alligator Descartes <I<descarte@arcana.co.uk>>.
 
 =for html
-<!-- Footer -->
-<P>
-<HR>
-<CENTER>
-<FONT SIZE="-1">
-<I>
-<B>&copy 1995-97 Hermetica</B><BR>
-<A HREF="/descarte/index.html">Alligator Descartes - Hermetica</A>
-</I>
-</FONT>
-</CENTER>
+<!--#include virtual="/technologia/perl/DBI/templatebottom.html" -->
 </BODY>
 </HTML>

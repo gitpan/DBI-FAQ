@@ -10,7 +10,8 @@ use Config;
 
 %opts = (
 	NAME=> 'DBI::FAQ',
-	VERSION => '0.34'
+	VERSION_FROM => 'FAQ.pm',
+	'dist' => { 'COMPRESS' => 'gzip -v -f -9', 'SUFFIX' => 'gz' },
   );
 
 warn <<EOM;
