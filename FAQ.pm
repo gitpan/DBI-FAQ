@@ -5,11 +5,11 @@
 ###
 ### Copyright section reproduced from below.
 ###
-### This document is Copyright (c)1994-1998 Alligator Descartes, with portions
-### Copyright (c)1994-1998 their original authors. This module is released under
+### This document is Copyright (c)1994-1999 Alligator Descartes, with portions
+### Copyright (c)1994-1999 their original authors. This module is released under
 ### the 'Artistic' license which you can find in the perl distribution.
 ### 
-### This document is Copyright (c)1997-1998 Alligator Descartes. All rights reserved.
+### This document is Copyright (c)1997-1999 Alligator Descartes. All rights reserved.
 ### Permission to distribute this document, in full or in part, via email,
 ### Usenet, ftp archives or http is granted providing that no charges are involved,
 ### reasonable attempt is made to use the most current version and all credits
@@ -22,7 +22,7 @@
 
 package DBI::FAQ;
 
-$VERSION = '0.36';
+$VERSION = '0.37';
 
 =head1 NAME
 
@@ -33,11 +33,11 @@ DBI::FAQ -- The Frequently Asked Questions for the Perl5 Database Interface
 <!--#include virtual="/technologia/perl/DBI/templatetop.html" -->
 <CENTER>
 <FONT SIZE="+2">
-DBI Frequently Asked Questions v.0.36
+DBI Frequently Asked Questions v.0.37
 </FONT>
 <BR>
 <FONT SIZE="-1">
-<I>Last updated: October 15th, 1998</I>
+<I>Last updated: December 30th, 1998</I>
 </FONT>
 </CENTER>
 <P>
@@ -48,7 +48,7 @@ DBI Frequently Asked Questions v.0.36
 
 =head1 VERSION
 
-This document is currently at version I<0.36>, as of I<October 15th, 1998>.
+This document is currently at version I<0.37>, as of I<December 30th, 1998>.
 
 =head1 DESCRIPTION
 
@@ -133,6 +133,7 @@ Here's a table of emulation layer information:
     ------          ---------------     ------
     DBD::Oracle     Oraperl             Complete
     DBD::Informix   Isqlperl            Under development
+    DBD::Ingres     Ingperl             Complete?
     DBD::Sybase     Sybperl             Working? ( Needs verification )
     DBD::mSQL       Msqlperl            Experimentally released with 
                                         DBD::mSQL-0.61
@@ -146,14 +147,10 @@ from CPAN I<via>:
 
 =head2 1.2. Where can I get it from?
 
-DBI is primarily distributed from:
-
-    ftp://ftp.demon.co.uk/pub/perl/db
-
 The Comprehensive Perl Archive Network
-resources should be used for retrieving up-to-date versions of the drivers,
-since local mirror sites usually lag. CPAN may be accessed I<via> Tom
-Christiansen's splendid I<CPAN multiplexer> program located at:
+resources should be used for retrieving up-to-date versions of the DBI
+and drivers. CPAN may be accessed I<via> Tom Christiansen's splendid 
+I<CPAN multiplexer> program located at:
 
     http://www.perl.com/CPAN/
 
@@ -196,10 +193,15 @@ up on how to program with the Oraperl interface by typing:
 This will produce an updated copy of the original oraperl man page written by
 Kevin Stock for perl4. The oraperl API is fully listed and described there.
 
-=item DBD::mSQL
+=item Drivers
 
-Users of the I<DBD::mSQL> module may read about some of the private functions
+Users of the DBD modules may read about some of the private functions
 and quirks of that driver by typing:
+
+    perldoc <driver>
+
+For example, the I<DBD::mSQL> driver is bundled with driver-specific 
+documentation that can be accessed by typing
 
     perldoc DBD::mSQL
 
@@ -211,7 +213,11 @@ documentation! You can read this on your own system by typing:
     perldoc DBI::FAQ
 
 This may be more convenient to persons not permanently, or conveniently,
-connected to the Internet.
+connected to the Internet. The I<DBI::FAQ> module should be downloaded and
+installed for the more up-to-date version.
+
+The version of I<DBI::FAQ> shipped with the C<DBI> module may be slightly out
+of date.
 
 =item POD in general
 
@@ -222,7 +228,8 @@ read by typing:
 
 Users with the Tk module installed may be interested to learn there is a
 Tk-based POD reader available called C<tkpod>, which formats POD in a convenient
-and readable way.
+and readable way. This is available I<via> CPAN as the module called 
+I<Tk::POD> and is highly recommended.
 
 =back
 
@@ -252,6 +259,7 @@ WWW at
 
 The article contains information that is now out of date with regards to the
 DBI 1.0 Specification since it was written approximately 2 years ago.
+I<Caveat Emptor>!
 
 =item I<``DBperl''>
 
@@ -315,6 +323,11 @@ Here is the putative table of contents for the book.
           + Administration Software
      * Appendix: API Reference / Specification
      * Appendix: Resources
+
+The book is currently well underway with around half being written to date and
+much example code has been written. Please do not pester the authors with
+``when will it be coming out?'' questions. We don't know exactly, but ``soon''
+is a good enough guess.
 
 =item I<README files>
 
@@ -479,6 +492,10 @@ and I<any other pertinent information>.
 Remember, the more information you send us, the quicker we can track 
 problems down. If you send us no useful information, expect nothing back.
 
+Finally, please be aware that some authors, including Tim Bunce, specifically
+request that you do I<not> mail them directly. Please respect their wishes and
+use the email addresses listed in the appropriate module C<README> file.
+
 =item I<Email the dbi-users Mailing List>
 
 It's usually a fairly intelligent idea to I<cc> the mailing list
@@ -491,13 +508,57 @@ by mailing there.
 
 =head2 3.1 What's the difference between ODBC and DBI?
 
-Good question! To be filled in more detail! Meanwhile, see the notes at
-the end of the DBI README file.
+In terms of architecture - not much: Both define programming
+interfaces. Both allow multiple drivers to be loaded to do the
+actual work.
 
-=head2 3.2 Is DBI supported under Windows 95 / NT platforms?
+In terms of easy of use - much: The DBI is a 'high level' interface
+that, like Perl itself, strives to make the simple things easy while
+still making the hard things possible. The ODBC is a 'low level'
+interface. All nuts-bolts-knobs-and-dials.
+
+Now there's an ODBC driver for the DBI (DBD::ODBC) the "What's the
+difference" question is more usefully rephrased as:
+
+=head2 3.2 What's the difference between Win32::ODBC and DBD::ODBC?
+
+The DBI, and thus DBD::ODBC, has a different philosophy from the
+Win32::ODBC module:
+
+The Win32::ODBC module is a 'thin' layer over the low-level ODBC API.
+The DBI defines a simpler 'higher level' interface.
+
+The Win32::ODBC module gives you access to more of the ODBC API.
+The DBI and DBD::ODBC give you access to only the essentials.
+(But, unlike Win32::ODBC, the DBI and DBD::ODBC do support parameter
+binding and multiple prepared statements which reduces the load on
+the database server and can dramatically increase performance.)
+
+The Win32::ODBC module only works on Win32 systems.
+The DBI and DBD::ODBC are very portable and work on Win32 and Unix.
+
+The DBI and DBD::ODBC modules are supplied as a standard part of the
+Perl 5.004 binary distribution for Win32 (they don't work with the
+older, non-standard, ActiveState port).
+
+Scripts written with the DBI and DBD::ODBC are faster than Win32::ODBC
+on Win32 and are trivially portable to other supported database types.
+  
+The DBI offers optional automatic printing or die()ing on errors which
+makes applications simpler and more robust.
+  
+The current DBD::ODBC driver version 0.16 is new and not yet fully stable.
+A new release is due soon [relative to the date of the next TPJ issue :-]
+and will be much improved and offer more ODBC functionality.
+
+To summarise: The Win32::ODBC module is your best choice if you need
+access to more of the ODBC API than the DBI gives you. Otherwise, the
+DBI and DBD::ODBC combination may be your best bet.
+
+=head2 3.3 Is DBI supported under Windows 95 / NT platforms?
 
 Finally, yes! Jeff Urlwin has been working diligently on building
-I<DBI> and I<DBD::Oracle> under these platforms, and, with the
+I<DBI> and I<DBD::ODBC> under these platforms, and, with the
 advent of a stabler perl and a port of I<MakeMaker>, the project has
 come on by great leaps and bounds.
 
@@ -505,11 +566,11 @@ The I<DBI> and I<DBD::Oracle> Win32 ports are now a standard part of DBI,
 so, downloading I<DBI> of version higher than I<0.81> should work fine as 
 should using the most recent I<DBD::Oracle> version.
 
-=head2 3.3 Can I access Microsoft Access or SQL-Server databases with DBI?
+=head2 3.4 Can I access Microsoft Access or SQL-Server databases with DBI?
 
 Yes, use the I<DBD::ODBC> driver.
 
-=head2 3.4 Is the a DBD for <I<insert favourite database here>>?
+=head2 3.5 Is the a DBD for <I<insert favourite database here>>?
 
 Is is listed on the DBI drivers page?
 
@@ -525,7 +586,7 @@ actually a I<DBI> driver, and may not conform to the specifications. Therefore,
 questions concerning problems with that code should I<not> really be addressed
 to the DBI Mailing Lists.
 
-=head2 3.5 What's DBM? And why should I use DBI instead?
+=head2 3.6 What's DBM? And why should I use DBI instead?
 
 Extracted from ``I<DBI - The Database Interface for Perl 5>'':
 
@@ -553,11 +614,11 @@ Extracted from ``I<DBI - The Database Interface for Perl 5>'':
     AnyDBM_File module.''
 
 To sum up, DBM is a perfectly satisfactory solution for essentially read-only
-databases, or small and simple datasets. However, for more powerful and
-scaleable datasets, not to mention robust transactional locking, users are
-recommended to use I<DBI>.
+databases, or small and simple datasets. However, for more 
+scaleable dataset handling, not to mention robust transactional locking, 
+users are recommended to use a more powerful database engine I<via> I<DBI>.
 
-=head2 3.6 What database do you recommend me using?
+=head2 3.7 What database do you recommend me using?
 
 This is a particularly thorny area in which an objective answer is difficult
 to come by, since each dataset, proposed usage and system configuration
@@ -571,6 +632,11 @@ and has excellent support. More information is available on the Hughes
 Technology WWW site at:
 
     http://www.hughes.com.au
+
+You may also wish to look at MySQL which is a more powerful database engine
+that has a similar feel to mSQL.
+
+    http://www.tcx.se
 
 If the dataset is larger than 1 million row tables or 1000 tables, or if you
 have either more money, or larger machines, I would recommend I<Oracle RDBMS>.
@@ -594,7 +660,7 @@ These views are not necessarily representative of anyone else's opinions,
 and do not reflect any corporate sponsorship or views. They are provided
 I<as-is>.
 
-=head2 3.7 Is <I<insert feature here>> supported in DBI?
+=head2 3.8 Is <I<insert feature here>> supported in DBI?
 
 Given that we're making the assumption that the feature you have requested
 is a non-standard database-specific feature, then the answer will be I<no>.
@@ -605,7 +671,7 @@ no database-specific functionality.
 However, driver authors may, if they so desire, include hooks to database-specific
 functionality through the C<func()> method defined in the DBI API.
 Script developers should note that use of functionality provided I<via>
-the C<func()> methods is unlikely to be portable across databases.
+the C<func()> methods is very unlikely to be portable across databases.
 
 =head1 Programming Questions
 
@@ -659,14 +725,16 @@ I<Apache::DBI> can be downloaded from CPAN I<via>:
 Basically, a good chance this is occurring is due to the fact that the user
 that you ran it from the command line as has a correctly configured set of
 environment variables, in the case of I<DBD::Oracle>, variables like
-C<$ORACLE_HOME>, C<$ORACLE_SID> or C<TWO_TASK>.
+C<ORACLE_HOME>, C<ORACLE_SID> or C<TWO_TASK>.
 
 The C<httpd> process usually runs under the user id of C<nobody>,
 which implies there is no configured environment. Any scripts attempting to
 execute in this situation will correctly fail.
 
-To solve this problem, set the environment for your database in a C<BEGIN { }>
-block at the top of your script. This will solve the problem.
+One way to solve this problem is to set the environment for your database in a
+C<BEGIN { }> block at the top of your script. Another technique is to configure
+your WWW server to pass-through certain environment variables to your CGI 
+scripts.
 
 Similarly, you should check your C<httpd> error logfile for any clues,
 as well as the ``Idiot's Guide To Solving Perl / CGI Problems'' and
@@ -682,21 +750,20 @@ carefully!
 
 =head2 4.5 How do I get the number of rows returned from a C<SELECT> statement?
 
-    Contributed by Tim Bunce
-
 Count them. Read the DBI docs for the C<rows()> method.
 
 =head1 Miscellaneous Questions
 
 =head2 5.1 Can I do multi-threading with DBI?
 
-As of the current date of this FAQ ( I<see top of page> ), no. perl
-does not support multi-threading. However, multi-threading is expected to
-become part of the perl core distribution as of version 5.005, which implies
-that DBI may support multi-threading fairly soon afterwards.
+Perl version 5.005 and later can be built to support multi-threading.
+The DBI, as of version 1.02, does not yet support multi-threading
+so it would be unsafe to let more than one thread enter the DBI at
+the same time.
 
-As of version 1.02 of DBI, DBI is not multi-thread-aware and use of 
-multi-threading with DBI may result in undefined behaviour.
+It is expected that some future version of the DBI will at least be
+thread-safe (but not thread-hot) by automatically blocking threads
+intering the DBI while it's already in use.
 
 For some OCI example code for Oracle that has multi-threaded C<SELECT>
 statements, see:
@@ -705,15 +772,26 @@ statements, see:
 
 =head2 5.2 How do I handle BLOB data with DBI?
 
-To be written.
+If the BLOB can fit into your memory then setting the LongReadLen
+attribute to a large enough value should be sufficient.
+  
+If not, ... To be written.
 
 =head2 5.3 How can I invoke stored procedures with DBI?
 
-Assuming that you have created a stored procedure within the target
+The DBI does not define a database-independent way of calling stored procedures.
+
+However, most database that support them also provide a way to call
+them from SQL statements - and the DBI certainly supports that.
+
+So, assuming that you have created a stored procedure within the target
 database, I<eg>, an Oracle database, you can use C<$dbh>->C<do()> to
 immediately execute the procedure. For example,
 
-    $dbh->do( "BEGIN someProcedure; END;" );
+    $dbh->do( "BEGIN someProcedure; END;" );   # Oracle-specific
+
+You should also be able to C<prepare> and C<execute>, which is
+the recommended way if you'll be calling the procedure often.
 
 =head2 5.4 How can I get return values from stored procedures with DBI?
 
@@ -725,7 +803,8 @@ immediately execute the procedure. For example,
     $sth->bind_param_inout(3, \$success, 2000);
     $sth->execute;
 
-Remember to perform error checking, though!
+Remember to perform error checking, though! ( Or use the C<RaiseError>
+attribute ).
 
 =head2 5.5 How can I create or drop a database with DBI?
 
@@ -734,7 +813,7 @@ to be adequately supported by DBI. For example, Oracle does not support the
 concept of dropping a database at all! Also, in Oracle, the database
 I<server> essentially I<is> the database, whereas in mSQL, the
 server process runs happily without any databases created in it. The
-problem is too disparate to attack.
+problem is too disparate to attack in a worthwhile way.
 
 Some drivers, therefore, support database creation and deletion through
 the private C<func()> methods. You should check the documentation for
@@ -742,8 +821,7 @@ the drivers you are using to see if they support this mechanism.
 
 =head2 5.6 How can I C<commit> or C<rollback> a statement with DBI?
 
-To be written. See the C<commit()> and C<rollback()> methods in the DBI
-README.
+See the C<commit()> and C<rollback()> methods in the DBI README.
 
 =head2 5.7 How are C<NULL> values handled by DBI?
 
@@ -788,7 +866,8 @@ OF ANY KIND. See the DBI README for more details.
 However, some organizations are providing either technical support or
 training programs on DBI. The present author has no knowledge as
 to the quality of these services. The links are included for reference
-purposes only.
+purposes only and should not be regarded as recommendations in any way.
+I<Caveat emptor>.
 
 =head2 Commercial Support
 
@@ -796,20 +875,35 @@ purposes only.
 
 =item The Perl Clinic
 
-The Perl Clinic can arrange commercial support contracts for I<Perl>, I<DBI>,
-I<DBD::Oracle> and I<Oraperl>. Support is provided by the company with whom
-Tim Bunce, author of I<DBI> and I<DBD::Oracle>, works. For more information on
-their services, please see:
+The Perl Clinic provides commercial support for I<Perl> and Perl
+related problems, including the I<DBI> and its drivers.  Support is
+provided by the company with whom Tim Bunce, author of I<DBI> and
+I<DBD::Oracle>, works and ActiveState. For more information on their
+services, please see:
 
     http://www.perlclinic.com
-
-for more details.
 
 =back
 
 =head2 Training
 
-No training programs are known at this time.
+=over 4
+
+=item Westlake Solutions
+
+A hands-on class for experienced Perl CGI developers that teaches
+how to write database-connected CGI scripts using Perl and DBI.pm.  This
+course, along with four other courses on CGI scripting with Perl, is
+taught in Washington, DC; Arlington, Virginia; and on-site worldwide upon
+request.
+
+See:
+
+    http://www.westlake.com/training
+
+for more details.
+
+=back
 
 =head1 Other References
 
@@ -828,11 +922,11 @@ original stated authors.
 
 =head1 COPYRIGHT
 
-This document is Copyright (c)1994-1998 Alligator Descartes, with portions
-Copyright (c)1994-1998 their original authors. This module is released under
+This document is Copyright (c)1994-1999 Alligator Descartes, with portions
+Copyright (c)1994-1999 their original authors. This module is released under
 the 'Artistic' license which you can find in the perl distribution.
 
-This document is Copyright (c)1997-1998 Alligator Descartes. All rights reserved.
+This document is Copyright (c)1997-1999 Alligator Descartes. All rights reserved.
 Permission to distribute this document, in full or in part, via email,
 Usenet, ftp archives or http is granted providing that no charges are involved,
 reasonable attempt is made to use the most current version and all credits
