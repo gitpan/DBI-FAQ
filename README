@@ -1,0 +1,43 @@
+
+DBI::FAQ -- The Frequently Asked Questions for the Perl5 Database Interface
+===========================================================================
+
+Copyright (c) 1994-1997 Alligator Descartes. Please see the 'COPYRIGHT'
+section of the actual documentation for the exact details of the license.
+
+BEFORE BUILDING, TESTING AND INSTALLING this you will need to:
+
+    Build, test and install Perl 5.
+    It is very important to test it and install it!
+
+    Build, test and install the DBI module.
+    It is very important to test it and install it!
+
+    Read this file thoroughly.
+
+BUILDING
+
+    If Perl5 is installed do:
+
+        perl Makefile.PL
+
+    If Perl5 is NOT installed do:
+
+        perl Makefile.PL PERL_SRC=/path/to/perl/source/dir
+
+    Then do:
+
+        make
+        make install
+
+Do NOT hand edit the generated Makefile unless you are completely sure
+you understand the implications! Always try to make changes via the
+Makefile.PL command line and/or editing the Makefile.PL.
+
+You should never need to make any changes. If you do *please* let me
+know so that I can try to make it automatic in a later release.
+
+--
+Alligator Descartes.
+descarte@hermetica.com
+http://www.hermetica.com
